@@ -26,7 +26,7 @@ class Usuario{
             echo '<body class="cuerpo-den">
             <div class="denegado">
              <p>Este usuario ya esta registrado</p>
-             <form action="../Ctrl/ctrlvalidarUsuario.php" method="post">
+             <form action="ctrlvalidarUsuario.php" method="post">
              <input type="hidden" name="opcion" value="3">
                 <input type="submit" value="regresar">
                 </form>
@@ -35,7 +35,7 @@ class Usuario{
         }else{
             mysqli_query($this->conectarBD(), "INSERT INTO usuarios (nombre, apellidos, telefono, correo, contraseña) values ('$this->nombre', '$this->apellidos', '$this->telefono', '$this->correo', '$this->contrasena')")
             or die("Problemas en el insert".mysqli_error($this->conectarBD()));
-            header("Location: ../vista/iniciarsesion.php");
+            header("Location: iniciarsesion.php");
         }
     }
     public function validarUsuario($correo, $contrasena){
@@ -48,7 +48,7 @@ class Usuario{
             echo '<body class="cuerpo-den">
             <div class="denegado">
              <p>No estas registrado, por favor registrate</p>
-             <form action="../Ctrl/ctrlvalidarUsuario.php" method="post">
+             <form action="ctrlvalidarUsuario.php" method="post">
              <input type="hidden" name="opcion" value="3">
                 <input type="submit" value="registrarse">
                 </form>
@@ -62,7 +62,7 @@ class Usuario{
             <section class="tabcontent">
                 <div class="formulario">
                    <center> <h2>Crear cuenta</h2> </center>
-                    <form action="../Ctrl/ctrlvalidarUsuario.php" method="post">
+                    <form action="ctrlvalidarUsuario.php" method="post">
                         <div class="username">
                             <input type="text" name="nombre" required id="nombre">
                             <label for="nombre">Nombre</label>
